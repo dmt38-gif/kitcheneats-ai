@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Meal Planner - Sprint 1 MVP</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Meal Planner</h1>
+            <p class="subtitle">Sprint 1 - MVP Prototype</p>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="pantry">Pantry</button>
+            <button class="tab-btn" data-tab="recipes">Recipes</button>
+            <button class="tab-btn" data-tab="meal-plan">Meal Plan</button>
+            <button class="tab-btn" data-tab="grocery">Grocery List</button>
+            <button class="tab-btn" data-tab="nutrition">Nutrition</button>
+        </nav>
+
+        <!-- Pantry Management Section -->
+        <section id="pantry" class="tab-content active">
+            <h2>Pantry Inventory</h2>
+            <div class="pantry-input">
+                <h3>Add Ingredient</h3>
+                <div class="input-group">
+                    <input type="text" id="pantry-ingredient" placeholder="Ingredient name (e.g., chicken breast)">
+                    <input type="number" id="pantry-quantity" placeholder="Quantity" step="0.1" min="0">
+                    <select id="pantry-unit">
+                        <option value="cups">cups</option>
+                        <option value="tbsp">tbsp</option>
+                        <option value="tsp">tsp</option>
+                        <option value="oz">oz</option>
+                        <option value="lbs">lbs</option>
+                        <option value="g">g</option>
+                        <option value="kg">kg</option>
+                        <option value="ml">ml</option>
+                        <option value="l">l</option>
+                        <option value="pieces">pieces</option>
+                        <option value="cloves">cloves</option>
+                        <option value="whole">whole</option>
+                    </select>
+                    <button id="add-pantry-item" class="btn-primary">Add to Pantry</button>
+                </div>
+            </div>
+            <div class="pantry-list">
+                <h3>Current Pantry Items</h3>
+                <div id="pantry-items-container">
+                    <!-- Pantry items will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Recipe Browser Section -->
+        <section id="recipes" class="tab-content">
+            <h2>Recipe Database</h2>
+            <div class="recipe-search">
+                <input type="text" id="recipe-search-input" placeholder="Search recipes by name or ingredient...">
+                <select id="recipe-filter-difficulty">
+                    <option value="">All Difficulties</option>
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                </select>
+                <button id="filter-by-pantry" class="btn-secondary">Show Recipes Using Pantry Items</button>
+            </div>
+            <div id="recipes-container" class="recipes-grid">
+                <!-- Recipes will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <!-- Meal Planning Section -->
+        <section id="meal-plan" class="tab-content">
+            <h2>Weekly Meal Plan</h2>
+            <div class="week-selector">
+                <button id="prev-week" class="btn-secondary">← Previous Week</button>
+                <span id="week-display">Week of [Date]</span>
+                <button id="next-week" class="btn-secondary">Next Week →</button>
+            </div>
+            <div class="meal-plan-grid">
+                <div class="day-column">
+                    <h3>Monday</h3>
+                    <div class="meal-slots">
+                        <div class="meal-slot">
+                            <label>Breakfast</label>
+                            <select class="recipe-select" data-day="monday" data-meal="breakfast">
+                                <option value="">Select recipe...</option>
+                            </select>
+                        </div>
+                        <div class="meal-slot">
+                            <label>Lunch</label>
+                            <select class="recipe-select" data-day="monday" data-meal="lunch">
+                                <option value="">Select recipe...</option>
+                            </select>
+                        </div>
+                        <div class="meal-slot">
+                            <label>Dinner</label>
+                            <select class="recipe-select" data-day="monday" data-meal="dinner">
+                                <option value="">Select recipe...</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="day-column">
+                    <h3>Tuesday</h3>
+                    <div class="meal-slots">
+                        <div class="meal-slot">
+                            <label>Breakfast</label>
+                            <select class="recipe-select" data-day="tuesday" data-meal="breakfast">
+                                <option value="">Select recipe...</option>
+                            </select>
+                        </div>
+                        <div class="meal-slot">
+                            <label>Lunch</label>
+                            <select class="recipe-select" data-day="tuesday" data-meal="lunch">
+                                <option value="">Select recipe...</option>
+                            </select>
+                        </div>
+                        <div class="meal-slot">
+                            <label>Dinner</label>
+                            <select class="recipe-select" data-day="tuesday" data-meal="dinner">
+                                <option value="">Select recipe...</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="day-column">
+                    <h3>Wednesday</h3>
+                    <div class="meal-slots">
+                        <div class="meal-slot">
+                            <label>Breakfast</label>
+                            <select class="recipe-select" data-day="wednesday" data-meal="breakfast">
+                                <option value="">Select recipe...</option>
+                            </select>
+                        </div>
+                        <div class="meal-slot">
+                            <label>Lunch</label>
+                            <select class="recipe-select" data-day="wednesday" data-meal="lunch">
+                                <option value="">Select recipe...</option>
+                            </select>
+                        </div>
+                        <div class="meal-slot">
+                            <label>Dinner</label>
+                            <select class="recipe-select" data-day="wednesday" data-meal="dinner">
+                                <option value="">Select recipe...</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="day-column">
+                    <h3>Thursday</h3>
+                    <div class="meal-slots">
+                        <div class="meal-slot">
+                            <label>Breakfast</label>
+                            <select class="recipe-select" data-day="thursday" data-meal="breakfast">
+                                <option value="">Select recipe...</option>
+                            </select>
+                        </div>
+                        <div class="meal-slot">
+                            <label>Lunch</label>
+                            <select class="recipe-select" data-day="thursday" data-meal="lunch">
+                                <option value="">Select recipe...</option>
+                            </select>
+                        </div>
+                        <div class="meal-slot">
+                            <label>Dinner</label>
+                            <select class="recipe-select" data-day="thursday" data-meal="dinner">
+                                <option value="">Select recipe...</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="day-column">
+                    <h3>Friday</h3>
+                    <div class="meal-slots">
+                        <div class="meal-slot">
+                            <label>Breakfast</label>
+                            <select class="recipe-select" data-day="friday" data-meal="breakfast">
+                                <option value="">Select recipe...</option>
+                            </select>
+                        </div>
+                        <div class="meal-slot">
+                            <label>Lunch</label>
+                            <select class="recipe-select" data-day="friday" data-meal="lunch">
+                                <option value="">Select recipe...</option>
+                            </select>
+                        </div>
+                        <div class="meal-slot">
+                            <label>Dinner</label>
+                            <select class="recipe-select" data-day="friday" data-meal="dinner">
+                                <option value="">Select recipe...</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="day-column">
+                    <h3>Saturday</h3>
+                    <div class="meal-slots">
+                        <div class="meal-slot">
+                            <label>Breakfast</label>
+                            <select class="recipe-select" data-day="saturday" data-meal="breakfast">
+                                <option value="">Select recipe...</option>
+                            </select>
+                        </div>
+                        <div class="meal-slot">
+                            <label>Lunch</label>
+                            <select class="recipe-select" data-day="saturday" data-meal="lunch">
+                                <option value="">Select recipe...</option>
+                            </select>
+                        </div>
+                        <div class="meal-slot">
+                            <label>Dinner</label>
+                            <select class="recipe-select" data-day="saturday" data-meal="dinner">
+                                <option value="">Select recipe...</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="day-column">
+                    <h3>Sunday</h3>
+                    <div class="meal-slots">
+                        <div class="meal-slot">
+                            <label>Breakfast</label>
+                            <select class="recipe-select" data-day="sunday" data-meal="breakfast">
+                                <option value="">Select recipe...</option>
+                            </select>
+                        </div>
+                        <div class="meal-slot">
+                            <label>Lunch</label>
+                            <select class="recipe-select" data-day="sunday" data-meal="lunch">
+                                <option value="">Select recipe...</option>
+                            </select>
+                        </div>
+                        <div class="meal-slot">
+                            <label>Dinner</label>
+                            <select class="recipe-select" data-day="sunday" data-meal="dinner">
+                                <option value="">Select recipe...</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grocery List Section -->
+        <section id="grocery" class="tab-content">
+            <h2>Grocery List</h2>
+            <div class="grocery-controls">
+                <button id="generate-grocery-list" class="btn-primary">Generate Grocery List</button>
+                <button id="clear-grocery-list" class="btn-secondary">Clear List</button>
+            </div>
+            <div id="grocery-list-container">
+                <p class="info-text">Click "Generate Grocery List" to create a shopping list based on your meal plan and pantry inventory.</p>
+            </div>
+        </section>
+
+        <!-- Nutrition Tracking Section -->
+        <section id="nutrition" class="tab-content">
+            <h2>Nutrition Tracking</h2>
+            <div class="nutrition-summary">
+                <h3>Weekly Nutrition Summary</h3>
+                <div class="nutrition-stats">
+                    <div class="stat-card">
+                        <div class="stat-label">Total Calories</div>
+                        <div class="stat-value" id="total-calories">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Total Protein (g)</div>
+                        <div class="stat-value" id="total-protein">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Total Carbs (g)</div>
+                        <div class="stat-value" id="total-carbs">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Total Fats (g)</div>
+                        <div class="stat-value" id="total-fats">0</div>
+                    </div>
+                </div>
+            </div>
+            <div class="nutrition-details">
+                <h3>Daily Breakdown</h3>
+                <div id="daily-nutrition-container">
+                    <!-- Daily nutrition breakdown will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Recipe Detail Modal -->
+    <div id="recipe-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="recipe-modal-body">
+                <!-- Recipe details will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="unitConverter.js"></script>
+    <script src="ingredientSynonymDB.js"></script>
+    <script src="ingredientSubstitutionDB.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+
