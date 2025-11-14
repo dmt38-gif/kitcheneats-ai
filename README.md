@@ -257,27 +257,27 @@ Each recipe includes:
 ### Priority Enhancements
 
 1. **Enhanced Ingredient Matching**
-   - Implement comprehensive unit conversion library **added in v1.1
-   - Add ingredient synonym database **added in v1.1
-   - Improve fuzzy matching algorithm **added in v1.1
-   - Support for ingredient substitutions **added in v1.1
+   - Implement comprehensive unit conversion library **added in v1.1 done
+   - Add ingredient synonym database **added in v1.1 done
+   - Improve fuzzy matching algorithm **added in v1.1 done
+   - Support for ingredient substitutions **added in v1.1 done
 
 2. **Portion Size Adjustments**
-   - Allow users to specify servings per meal
-   - Scale nutrition calculations accordingly
-   - Update grocery list quantities based on portions
+   - Allow users to specify servings per meal **added in v1.2 done
+   - Scale nutrition calculations accordingly **added in v1.2 done
+   - Update grocery list quantities based on portions **added in v1.2 done
 
 3. **Recipe Customization**
-   - Allow users to add custom recipes
-   - Edit existing recipes
-   - Save favorite recipes
-   - Recipe scaling functionality
+   - Allow users to add custom recipes **added in v1.2 done
+   - Edit existing recipes **added in v1.2 done
+   - Save favorite recipes **added in v1.2 ran out of trial subscription fack
+   - Recipe scaling functionality **added in v1.2
 
 4. **Improved Grocery List**
    - Categorize items (produce, meat, dairy, pantry, etc.)
    - Add checkboxes for shopping
    - Print-friendly format
-   - Export to shopping apps
+   - Export to shopping apps (i.e. Instacart)
 
 5. **Enhanced Nutrition Features**
    - Daily calorie goals
